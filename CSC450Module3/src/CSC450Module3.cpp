@@ -36,6 +36,15 @@ int main() {
 	cout << "Pointer 3 address: " << pointer3 << endl;
 	cout << "Pointer 3 value: " << *pointer3 << endl;
 	
+	delete pointer1;
+	delete pointer2;
+	delete pointer3;
+	
+	pointer1 = nullptr;
+	pointer2 = nullptr;
+	pointer3 = nullptr;
+	
+	cout << "\nDynamic memory has been released." << endl;
 	
 	return 0;
 }
