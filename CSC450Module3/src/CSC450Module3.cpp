@@ -1,30 +1,27 @@
 #include <iostream>
-using namespace std;
+#include <limits>
 
+// Function to get and validate integer from user.
+int getInteger(const std::string& prompt) {
+	int number;
+	
+	while (true) {
+		std::cout << prompt;
+		if (std::in >> number) {
+			return number;
+		}
+// Clear error state and remove input if invalid.
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input. Please enter a whole number.\n";
+	}
+}
+// Main program.
 int main() {
-// Declare integer variables.	
-	int iNum1;
-	int iNum2;
-	int iNum3;
-// Get first integer input from user.	
-	cout << "Enter an integer: ";
-	while (!(cin >> iNum1)) {
-		cout << "Invalid input. Please enter an Integer: ";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	};
-	cout << "Enter a second integer: ";
-	while(!(cin >> iNum2)) {
-		cout << "Invalid input. Please enter an Integer: ";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	};
-	cout << "Enter a third integer: ";
-	while (!(cin >> iNum3)) {
-		cout << "Invalid input. Please enter an Integer: ";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	};
+// Declare integer variables and get three values from user.	
+	int iNum1 = getInteger("Enter an integer: ");
+	int iNum2 = getInteger("Enter a second integer: ");
+	int iNum3 = getInteger("Enter a third integer: ");
 // Dynamically allocate memory for three integers.	
 	int* pNum1 = new int;
 	int* pNum2 = new int;
@@ -34,24 +31,24 @@ int main() {
 	*pNum2 = iNum2;
 	*pNum3 = iNum3;
 // Display variables and pointer information.	
-	cout << "\n--- Integer Values and Pointers ---" << endl;
+	std::cout << "\n--- Integer Values and Pointers ---\n";
 	
-	cout << "\nVariable 1: " << iNum1 << endl;
-	cout << "Variable 1 address (&iNum1): " << &iNum1 << endl;
-	cout << "Pointer 1 address: " << pNum1 << endl;
-	cout << "Pointer 1 value (*pNum1): " << *pNum1 << endl;
+	std::cout << "\nVariable 1: " << iNum1 << '\n';
+	std::cout << "Variable 1 address (&iNum1): " << &iNum1 << '\n';
+	std::cout << "Pointer 1 address: " << pNum1 << '\n';
+	std::cout << "Pointer 1 value (*pNum1): " << *pNum1 << '\n';
 	
-	cout << "\nVariable 2: " << iNum2 << endl;
-	cout << "Variable 2 address (&iNum2): " << &iNum2 << endl;
-	cout << "Pointer 2 address: " << pNum2 << endl;
-	cout << "Pointer 2 value (*pNum2): " << *pNum2 << endl;
+	std::cout << "\nVariable 2: " << iNum2 << '\n';
+	std::cout << "Variable 2 address (&iNum2): " << &iNum2 << '\n';
+	std::cout << "Pointer 2 address: " << pNum2 << '\n';
+	std::cout << "Pointer 2 value (*pNum2): " << *pNum2 << '\n';
 	
-	cout << "\nVariable 3: " << iNum3 << endl;
-	cout << "Variable 3 address (&iNum3): " << &iNum3 << endl;
-	cout << "Pointer 3 address: " << pNum3 << endl;
-	cout << "Pointer 3 value (*pNum3): " << *pNum3 << endl;
+	std::cout << "\nVariable 3: " << iNum3 << '\n';
+	std::cout << "Variable 3 address (&iNum3): " << &iNum3 << '\n';
+	std::cout << "Pointer 3 address: " << pNum3 << '\n';
+	std::cout << "Pointer 3 value (*pNum3): " << *pNum3 << "\n";
 // Release dynamically allocated memory.	
-	cout << "\nDeleting dynamically allocated memory..." << endl;
+	std::cout << "\nDeleting dynamically allocated memory...\n";
 	delete pNum1;
 	delete pNum2;
 	delete pNum3;
@@ -60,7 +57,7 @@ int main() {
 	pNum2 = nullptr;
 	pNum3 = nullptr;
 	
-	cout << "\nDynamic memory has been released." << endl;
+	std::cout << "Dynamic memory has been released.\n";
 	
 	return 0;
 }
