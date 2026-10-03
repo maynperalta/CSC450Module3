@@ -22,23 +22,29 @@ int main() {
 	*pointer2 = iNum2;
 	*pointer3 = iNum3;
 	
-	cout << "\n--- Integer Values and Pointers ---\n" << endl;
+	cout << "--- Integer Values and Pointers ---" << endl;
+	cout << endl;
 	
 	cout << "Variable 1: " << iNum1 << endl;
 	cout << "Pointer 1 address: " << pointer1 << endl;
 	cout << "Pointer 1 value: " << *pointer1 << endl;
+	cout << endl;
 	
 	cout << "Variable 2: " << iNum2 << endl;
 	cout << "Pointer 2 address: " << pointer2 << endl;
 	cout << "Pointer 2 value: " << *pointer2 << endl;
+	cout << endl;
 	
 	cout << "Variable 3: " << iNum3 << endl;
 	cout << "Pointer 3 address: " << pointer3 << endl;
 	cout << "Pointer 3 value: " << *pointer3 << endl;
+	cout << endl;
 	
+	cout << "Deleting pointers..." << endl;
 	delete pointer1;
 	delete pointer2;
 	delete pointer3;
+	cout << endl;
 	
 	pointer1 = nullptr;
 	pointer2 = nullptr;
