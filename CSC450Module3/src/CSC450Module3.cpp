@@ -34,33 +34,31 @@ int main() {
 	*pNum2 = iNum2;
 	*pNum3 = iNum3;
 // Display variables and pointer information.	
-	cout << "--- Integer Values and Pointers ---" << endl;
-	cout << endl;
+	cout << "\n--- Integer Values and Pointers ---" << endl;
 	
-	cout << "Variable 1: " << iNum1 << endl;
-	cout << "Pointer 1 address: " << pointer1 << endl;
-	cout << "Pointer 1 value: " << *pointer1 << endl;
-	cout << endl;
+	cout << "\nVariable 1: " << iNum1 << endl;
+	cout << "Variable 1 address (&iNum1): " << &iNum1 << endl;
+	cout << "Pointer 1 address: " << pNum1 << endl;
+	cout << "Pointer 1 value (*pNum1): " << *pNum1 << endl;
 	
-	cout << "Variable 2: " << iNum2 << endl;
-	cout << "Pointer 2 address: " << pointer2 << endl;
-	cout << "Pointer 2 value: " << *pointer2 << endl;
-	cout << endl;
+	cout << "\nVariable 2: " << iNum2 << endl;
+	cout << "Variable 2 address (&iNum2): " << &iNum2 << endl;
+	cout << "Pointer 2 address: " << pNum2 << endl;
+	cout << "Pointer 2 value (*pNum2): " << *pNum2 << endl;
 	
-	cout << "Variable 3: " << iNum3 << endl;
-	cout << "Pointer 3 address: " << pointer3 << endl;
-	cout << "Pointer 3 value: " << *pointer3 << endl;
-	cout << endl;
-	
-	cout << "Deleting pointers..." << endl;
-	delete pointer1;
-	delete pointer2;
-	delete pointer3;
-	cout << endl;
-	
-	pointer1 = nullptr;
-	pointer2 = nullptr;
-	pointer3 = nullptr;
+	cout << "\nVariable 3: " << iNum3 << endl;
+	cout << "Variable 3 address (&iNum3): " << &iNum3 << endl;
+	cout << "Pointer 3 address: " << pNum3 << endl;
+	cout << "Pointer 3 value (*pNum3): " << *pNum3 << endl;
+// Release dynamically allocated memory.	
+	cout << "\nDeleting dynamically allocated memory..." << endl;
+	delete pNum1;
+	delete pNum2;
+	delete pNum3;
+// Set pointers to 'nullptr' after deleting memory. 	
+	pNum1 = nullptr;
+	pNum2 = nullptr;
+	pNum3 = nullptr;
 	
 	cout << "\nDynamic memory has been released." << endl;
 	
