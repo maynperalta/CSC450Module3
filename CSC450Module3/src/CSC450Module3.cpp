@@ -1,19 +1,41 @@
 #include <iostream>
-#include <limits>
 
 // Function to get and validate integer from user.
 int getInteger(const std::string& prompt) {
-	int number;
-	
+	std::string input;
+		
 	while (true) {
 		std::cout << prompt;
-		if (std::in >> number) {
-			return number;
+		std::getline(std::cin, input);
+// Reject empty input		
+		if (input.empty()) {
+			std::cout << "Invalid input. Please enter a whole number.\n";
+			continue;
 		}
-// Clear error state and remove input if invalid.
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Invalid input. Please enter a whole number.\n";
+// Allow negative numbers
+		size_t start = 0;
+		
+		if (input[0] == '-') {
+			if (input.length() == 1) {
+				std::cout << "Invalid input. Please enter a whole number.\n";
+				continue;
+			}
+			start = 1;
+		}
+// Ensure characters input by user are digits		
+		bool valid = true;
+		
+		for (size_t i = start; i < input.length(); i++) {
+			if (input[i] < '0' || input[i] > '9') {
+				valid = false;
+				break;
+			}
+		}
+		if (!valid) {
+			std::cout << "Invalid input. Please enter a whole number.\n";
+			continue;
+		}
+		return std::stoi(input);
 	}
 }
 // Main program.
