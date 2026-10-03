@@ -2,26 +2,38 @@
 using namespace std;
 
 int main() {
-	
+// Declare integer variables.	
 	int iNum1;
 	int iNum2;
 	int iNum3;
-	
+// Get first integer input from user.	
 	cout << "Enter an integer: ";
-	cin >> iNum1;
+	while (!(cin >> iNum1)) {
+		cout << "Invalid input. Please enter an Integer: ";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	};
 	cout << "Enter a second integer: ";
-	cin >> iNum2;
+	while(!(cin >> iNum2)) {
+		cout << "Invalid input. Please enter an Integer: ";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	};
 	cout << "Enter a third integer: ";
-	cin >> iNum3;
-	
-	int* pointer1 = new int;
-	int* pointer2 = new int;
-	int* pointer3 = new int;
-	
-	*pointer1 = iNum1;
-	*pointer2 = iNum2;
-	*pointer3 = iNum3;
-	
+	while (!(cin >> iNum3)) {
+		cout << "Invalid input. Please enter an Integer: ";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	};
+// Dynamically allocate memory for three integers.	
+	int* pNum1 = new int;
+	int* pNum2 = new int;
+	int* pNum3 = new int;
+// Store values in dynamically allocated memory.	
+	*pNum1 = iNum1;
+	*pNum2 = iNum2;
+	*pNum3 = iNum3;
+// Display variables and pointer information.	
 	cout << "--- Integer Values and Pointers ---" << endl;
 	cout << endl;
 	
