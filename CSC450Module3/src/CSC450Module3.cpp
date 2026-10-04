@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 // Function to get and validate integer from user.
 int getInteger(const std::string& prompt) {
